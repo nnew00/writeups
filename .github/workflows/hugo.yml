@@ -39,6 +39,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true   # auto-enable Pages (GitHub Actions source) if not already
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
