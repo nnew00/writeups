@@ -1,0 +1,91 @@
+baseURL = "https://nnew00.github.io/writeups/"
+locale = "en-us"
+title = "new0"
+theme = "PaperMod"
+disableHugoGeneratorInject = true   # no <meta name=generator content="Hugo ...">
+
+# CTF categories + tags. `tags` is builtin; add `categories` for pwn/web/crypto/rev.
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Faster builds, cleaner output
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+enableEmoji = true
+pygmentsUseClasses = true
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  env = "production"
+  description = "CTF / security research writeups"
+  author = "new0"
+  defaultTheme = "auto"     # light/dark auto
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowWordCount = true
+  ShowShareButtons = false
+  disableScrollToTop = false
+  # KaTeX math (crypto). Toggle per-post with `math: true` in frontmatter.
+  math = false
+
+  [params.homeInfoParams]
+    Title = "new0"
+    Content = "CTF / security research writeups"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/nnew00"
+
+  [params.fuseOpts]        # search config
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]   # JSON = search index
+
+# Syntax highlighting (Chroma). Classes so theme controls colors in dark/light.
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+    tabWidth = 4
+    guessSyntax = true
+  [markup.goldmark.renderer]
+    unsafe = true   # allow raw HTML in markdown (some writeup embeds)
+
+[menu]
+  [[menu.main]]
+    identifier = "writeups"
+    name = "Writeups"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 20
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 30
+  [[menu.main]]
+    identifier = "search"
+    name = "Search"
+    url = "/search/"
+    weight = 40
